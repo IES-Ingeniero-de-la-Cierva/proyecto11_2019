@@ -16,6 +16,10 @@
 		echo '</ul><br>';
 	}
 
+	function showField($field) {
+		return isset($_POST[$field]) ? $_POST[$field] : '';
+	}
+
 	if ( ! $_POST ) { 
 		include 'formulario.php';
 	} else {
@@ -43,30 +47,9 @@
 		
 		if ($errors) {
 			showErrors($errors);
+			include 'formulario.php';
 		?>
-			<form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-				<p>
-					<label for="name">Nombre</label>
-					<input type="text" name="name" value="<?= $_POST['name'] ?>">
-				</p>
-				<p>
-					<label for="email">Correo Electrónico</label>
-					<input type="email" name="email" value="<?= $_POST['email'] ?>">
-				</p>
-				<p>
-					<label for="password1">Contraseña</label>
-					<input type="password" name="password1">
-				</p>
-				<p>
-					<label for="password2">Repite la contraseña</label>
-					<input type="password" name="password2">
-				</p>
-				<p>
-					<label>
-						<input type="submit" value="Enviar">
-					</label>
-				</p>
-			</form>
+			
 		<?php
 		} else {
 			echo 'Todo bien, pasamos a registrar ese usuario';

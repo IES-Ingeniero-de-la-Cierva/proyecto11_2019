@@ -1,11 +1,11 @@
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 	<p>
 		<label for="name">Nombre</label>
-		<input type="text" name="name" value="">
+		<input type="text" name="name" value="<?= showField('name') ?>">
 	</p>
 	<p>
 		<label for="email">Correo Electrónico</label>
-		<input type="email" name="email">
+		<input type="email" name="email" value="<?= showField('email') ?>">
 	</p>
 	<p>
 		<label for="password1">Contraseña</label>
